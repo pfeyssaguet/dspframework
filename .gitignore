@@ -1,0 +1,12 @@
+# Eclipse
+.buildpath
+.project
+/.settings
+
+# Composer
+composer.phar
+/vendor
+
+# Code coverage report
+/test/report
+
