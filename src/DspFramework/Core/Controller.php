@@ -21,7 +21,7 @@ abstract class Controller
 
 	public static function run($appName)
 	{
-		$className = $appName . '\\' . $appName . 'FrontController';
+		$className = '\\' . $appName . '\\' . $appName . 'FrontController';
 		if (!class_exists($className))
 		{
 			throw new \InvalidArgumentException("Class $className does not exists !");
