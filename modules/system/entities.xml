@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities>
+	<entity name="User" table="t_user">
+		<fields>
+			<field name="id_user" type="int(11) unsigned" extra="auto_increment" />
+			<field name="login" type="varchar(32)" />
+			<field name="password" type="varchar(32)" />
+			<field name="active" type="tinyint(1)" default="0" />
+		</fields>
+		<keys>
+			<key name="PRIMARY" type="primary">
+				<field>id_user</field>
+			</key>
+			<key name="login" type="unique">
+				<field>login</field>
+			</key>
+			<key name="active" type="index">
+				<field>active</field>
+			</key>
+		</keys>
+	</entity>
+	<entity name="Group" table="t_group">
+		<fields>
+			<field name="id_group" type="int(11) unsigned" extra="auto_increment" />
+			<field name="name" type="varchar(32)" />
+		</fields>
+		<keys>
+			<key name="PRIMARY" type="primary">
+				<field>id_group</field>
+			</key>
+			<key name="name" type="index">
+				<field>name</field>
+			</key>
+		</keys>
+	</entity>
+	<entity name="UserGroup" table="t_user_group">
+		<fields>
+			<field name="id_user_group" type="int(11) unsigned" extra="auto_increment" />
+			<field name="id_user" type="int(11) unsigned" />
+			<field name="id_group" type="int(11) unsigned" />
+		</fields>
+		<keys>
+			<key name="PRIMARY" type="primary">
+				<field>id_user_group</field>
+			</key>
+			<key name="user_group" type="unique">
+				<field>id_user</field>
+				<field>id_group</field>
+			</key>
+			<key name="id_user" type="index">
+				<field>id_user</field>
+			</key>
+			<key name="id_group" type="index">
+				<field>id_group</field>
+			</key>
+		</keys>
+	</entity>
+	<entity name="Role" table="t_role">
+		<fields>
+			<field name="id_role" type="int(11) unsigned" extra="auto_increment" />
+			<field name="name" type="varchar(32)" />
+		</fields>
+		<keys>
+			<key name="PRIMARY" type="primary">
+				<field>id_role</field>
+			</key>
+		</keys>
+	</entity>
+	<entity name="UserRole" table="t_user_role">
+		<fields>
+			<field name="id_user_role" type="int(11) unsigned" extra="auto_increment" />
+			<field name="id_user" type="int(11) unsigned" />
+			<field name="id_role" type="int(11) unsigned" />
+		</fields>
+		<keys>
+			<key name="PRIMARY" type="primary">
+				<field>id_user_role</field>
+			</key>
+			<key name="user_role" type="unique">
+				<field>id_user</field>
+				<field>id_role</field>
+			</key>
+			<key name="id_user" type="index">
+				<field>id_user</field>
+			</key>
+			<key name="id_role" type="index">
+				<field>id_role</field>
+			</key>
+		</keys>
+	</entity>
+	<entity name="GroupRole" table="t_group_role">
+		<fields>
+			<field name="id_group_role" type="int(11) unsigned" extra="auto_increment" />
+			<field name="id_group" type="int(11) unsigned" />
+			<field name="id_role" type="int(11) unsigned" />
+		</fields>
+		<keys>
+			<key name="PRIMARY" type="primary">
+				<field>id_group_role</field>
+			</key>
+			<key name="group_role" type="unique">
+				<field>id_group</field>
+				<field>id_role</field>
+			</key>
+			<key name="id_group" type="index">
+				<field>id_group</field>
+			</key>
+			<key name="id_role" type="index">
+				<field>id_role</field>
+			</key>
+		</keys>
+	</entity>
+</entities>

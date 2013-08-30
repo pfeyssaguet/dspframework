@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config>
+	<databases>
+		<database alias="dsp">
+			<host>localhost</host>
+			<login>beta</login>
+			<password>tomate</password>
+			<schema>dsp</schema>
+		</database>
+	</databases>
+</config>

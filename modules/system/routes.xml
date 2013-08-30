@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+	<route>
+		<pattern>/system</pattern>
+		<controller>DefaultController</controller>
+		<action>default</action>
+	</route>
+	<route>
+		<pattern>/system/users</pattern>
+		<controller>UserController</controller>
+		<action>default</action>
+	</route>
+	<route>
+		<pattern>/system/users/{userId}/view</pattern>
+		<controller>UserController</controller>
+		<action>view</action>
+	</route>
+	<route>
+		<pattern>/system/users/{userId}/edit</pattern>
+		<controller>UserController</controller>
+		<action>edit</action>
+	</route>
+</routes>
