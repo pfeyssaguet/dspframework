@@ -16,7 +16,7 @@ class Response
 	}
 
 	public function run() {
-		header('Content-type: '.$contentType);
+		header('Content-type: ' . $this->contentType);
 		echo $this->content;
 	}
 }
