@@ -6,6 +6,14 @@ use DspFramework\Core\ActionNotFoundException;
 
 abstract class Controller
 {
+	/**
+	 * Launch said action and returns the response
+	 *
+	 * @param string $name Action name
+	 * @param array $args Action args
+	 * @throws ActionNotFoundException
+	 * @return DspFramework\Core\Response
+	 */
 	private function actionLaunch($name, $args = array())
 	{
 		$methodName = $name . 'Action';
@@ -17,8 +25,14 @@ abstract class Controller
 		}
 
 		$response = call_user_func(array($this, $methodName), $args);
+		return $response;
 	}
 
+	/**
+	 * Runs the application
+	 * @param string $appName Application name
+	 * @throws \InvalidArgumentException
+	 */
 	public static function run($appName)
 	{
 		$className = '\\' . $appName . '\\' . $appName . 'FrontController';
@@ -33,6 +47,7 @@ abstract class Controller
 		}
 
 		$frontController = new $className();
-		$frontController->actionLaunch('default');
+		$response = $frontController->actionLaunch('default');
+		$response->run();
 	}
 }
